@@ -3,6 +3,7 @@ syms x y theta delta v a u1 u2 L k dt
 
 % 定义状态变量和状态向量
 state = [x; y; theta; delta; v; a];
+control = [u1; u2];
 
 % 定义状态方程
 f = [
@@ -26,6 +27,8 @@ state_new = simplify(state_new);
 
 % 计算雅各比矩阵
 jacobian_matrix = jacobian(state_new, state);
+jacobian_control = jacobian(state_new, control);
 
 % 显示雅各比矩阵
 disp(jacobian_matrix);
+disp(jacobian_control);
